@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string name="app_name">resume</string>
+    <string name="title_section1">Home</string>
+    <string name="title_section2">My Resume</string>
+    <string name="title_section3">My Grade</string>
+    <string name="title_section4">My Prize</string>
+    <string name="title_section5">My Blog</string>
+    <string name="title_section6">My Gist</string>
+    <string name="title_section7">My Weibo</string>
+    <string name="title_section8">Others</string>
+    <string name="navigation_drawer_open">Open navigation drawer</string>
+    <string name="navigation_drawer_close">Close navigation drawer</string>
+    <string name="action_example">Example action</string>
+    <string name="action_settings">Settings</string>
+
+    <string name="my_resume">我的简历</string>
+    <string name="base_info">基本信息</string>
+    <string name="base_info_content">姓名: 王文海\n性别: 男\n出生年月: 1994/06\n所在地: 南京\n政治面貌: 预备党员\n毕业院校: 南京理工大学\n学历: 本科\n专业: 软件工程\n手机: 18362960936\n邮箱: wangwenhai362@163.com</string>
+    <string name="skill">专业技能</string>
+    <string name="skill_content">①有较强的算法设计能力，有算法竞赛的获奖经历；\n②学习能力强，平均成绩在专业排名前十，大学期间C++和JAVA课程设计都为优；</string>
+    <string name="prize">获奖经历</string>
+    <string name="prize_content">①2014年ACM国际大学生程序设计竞赛亚洲区域赛现场赛铜奖；\n②CCF CSP认证成绩380分；\n③工信部第五届“蓝桥杯”全国软件专业人才设计大赛本科A组JAVA组，江苏赛一等奖，全国赛三等奖；\n④工信部第六届“蓝桥杯”全国软件专业人才设计大赛本科A组C++组，江苏赛一等奖，全国赛二等奖；\n⑤第四届“华为杯”全国大学生智能设计竞赛二等奖；\n⑥013年南京理工大学中兴•图灵杯人工智能程序设计大赛三等奖；\n⑦获得南京理工大学校一等奖学金、二等奖学金多次；</string>
+	<string name="project_exp">项目经验</string>
+	<string name="project_exp_content">①github个人代码平台，https://github.com/whai362；\n②疯狂的子弹（JAVA，2013/9-2013/10），该程序是模仿“合金弹头”，用java写的一个闯关类游戏。游戏中英雄要消灭敌人，然后吃不同的道具，最后打败boss通关。游戏没有使用游戏引擎，游戏人物的动作和碰撞检测等都是直接代码实现的。整个工程由个人单独完成；\n③教学资源管理系统（JAVA，J2EE，MySQL，2014/9 ~2014/10），实现学生、教师等人员信息管理。实现教师、课程、课件关系维护。课件管理子模块实现课件上传、下载、搜索，在线观看等。作业管理实现多次作业的提交、下载、交作业情况、作业成绩管理、统计分析。整个工程由个人单独完成；\n④2014年南京理工大学中兴•图灵杯人工智能程序设计大赛的平台，主要参与游戏规则拟定和前后端的开发和debug。比赛平台是一个四方对战的平台，由每个参赛选手提供控制游戏角色的ai代码，利用比赛平台进行对战；</string>
+	<string name="self_access">自我评价</string>
+	<string name="self_access_content">①认真勤奋、乐于进取、做事踏实、适应性强，工作积极，具有良好的团队合作精神。\n②对于创新及解决具有挑战性的问题充满激情，同时追求完美，坚持原则，具备良好的学习能力和质疑习惯，这正是我坚持两年多的ACM生涯的重要原因，而两年多的ACM生涯锻炼出了我优秀的逻辑思维及分析能力；</string>
+</resources>
