@@ -14,8 +14,10 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
+import android.view.View.OnClickListener;
 import android.support.v4.widget.DrawerLayout;
 import android.widget.ArrayAdapter;
+import android.widget.Button;
 import android.widget.TextView;
 
 public class MainActivity extends Activity implements
@@ -72,7 +74,7 @@ public class MainActivity extends Activity implements
 		case TAB_MY_PRIZE:
 			mTitle = getString(R.string.title_section4);
 			fragmentManager.beginTransaction()
-					.replace(R.id.container, new MyPrizeFragment()).commit();
+					.replace(R.id.container, new MyPrizeFragment(MainActivity.this)).commit();
 			break;
 		}
 

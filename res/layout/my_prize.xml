@@ -5,9 +5,27 @@
     android:orientation="vertical" >
     
     <TextView
-        android:id="@+id/section_label"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:gravity="center"
+            android:text="@string/my_prize"
+            android:textSize="24dp" />
+
+    <Button
+        android:id="@+id/select_pic"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="我的获奖" />
+        android:text="@string/select_pic" />
+    
+     <ImageView
+        android:id="@+id/imageView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="114dp"
+        android:scaleType="centerCrop"
+        android:src="@drawable/ic_launcher" />
 
 </LinearLayout>
