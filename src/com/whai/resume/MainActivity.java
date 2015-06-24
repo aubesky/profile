@@ -1,24 +1,17 @@
 package com.whai.resume;
 
-import android.R.integer;
+import com.whai.resume.weibo.WBDemoMainActivity;
+
 import android.app.Activity;
 import android.app.ActionBar;
 import android.app.Fragment;
 import android.app.FragmentManager;
-import android.content.Context;
-import android.os.Build;
+import android.content.Intent;
 import android.os.Bundle;
-import android.view.Gravity;
-import android.view.LayoutInflater;
+import android.view.KeyEvent;
 import android.view.Menu;
 import android.view.MenuItem;
-import android.view.View;
-import android.view.ViewGroup;
-import android.view.View.OnClickListener;
 import android.support.v4.widget.DrawerLayout;
-import android.widget.ArrayAdapter;
-import android.widget.Button;
-import android.widget.TextView;
 
 public class MainActivity extends Activity implements
 		NavigationDrawerFragment.NavigationDrawerCallbacks {
@@ -26,6 +19,11 @@ public class MainActivity extends Activity implements
 	private static final int TAB_MY_RESUME = 1;
 	private static final int TAB_MY_GRADE = 2;
 	private static final int TAB_MY_PRIZE = 3;
+	private static final int TAB_MY_BLOG = 4;
+	private static final int TAB_MY_GIST = 5;
+	private static final int TAB_MY_WEIBO = 6;
+
+	private Fragment nowFragment; // fg记录当前的Fragment
 	/**
 	 * Fragment managing the behaviors, interactions and presentation of the
 	 * navigation drawer.
@@ -36,7 +34,6 @@ public class MainActivity extends Activity implements
 	 * Used to store the last screen title. For use in
 	 * {@link #restoreActionBar()}.
 	 */
-	private CharSequence mTitle;
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
@@ -57,34 +54,36 @@ public class MainActivity extends Activity implements
 		FragmentManager fragmentManager = getFragmentManager();
 		switch (position) {
 		case TAB_HOME:
-			mTitle = getString(R.string.title_section1);
-			fragmentManager.beginTransaction()
-					.replace(R.id.container, new HomeFragment()).commit();
+			nowFragment = new HomeFragment();
 			break;
 		case TAB_MY_RESUME:
-			mTitle = getString(R.string.title_section2);
-			fragmentManager.beginTransaction()
-					.replace(R.id.container, new MyResumeFragment()).commit();
+			nowFragment = new MyResumeFragment();
 			break;
 		case TAB_MY_GRADE:
-			mTitle = getString(R.string.title_section3);
-			fragmentManager.beginTransaction()
-					.replace(R.id.container, new MyGradeFragment()).commit();
+			nowFragment = new MyGradeFragment();
 			break;
 		case TAB_MY_PRIZE:
-			mTitle = getString(R.string.title_section4);
-			fragmentManager.beginTransaction()
-					.replace(R.id.container, new MyPrizeFragment(MainActivity.this)).commit();
+			nowFragment = new MyPrizeFragment();
+			break;
+		case TAB_MY_BLOG:
+			nowFragment = new MyBlogFragment();
+			break;
+		case TAB_MY_GIST:
+			nowFragment = new MyGistFragment();
+			break;
+		case TAB_MY_WEIBO:
+			nowFragment = new MyWeiboFragment();
 			break;
 		}
-
+		fragmentManager.beginTransaction().replace(R.id.container, nowFragment)
+				.commit();
 	}
 
 	public void restoreActionBar() {
 		ActionBar actionBar = getActionBar();
 		actionBar.setNavigationMode(ActionBar.NAVIGATION_MODE_STANDARD);
 		actionBar.setDisplayShowTitleEnabled(true);
-		actionBar.setTitle(mTitle);
+		// actionBar.setTitle(mTitle);
 	}
 
 	@Override
@@ -93,7 +92,12 @@ public class MainActivity extends Activity implements
 			// Only show items in the action bar relevant to this screen
 			// if the drawer is not showing. Otherwise, let the drawer
 			// decide what to show in the action bar.
-			getMenuInflater().inflate(R.menu.main, menu);
+			if (nowFragment instanceof MyPrizeFragment)
+				getMenuInflater().inflate(R.menu.my_prize_menu, menu);
+			else if (nowFragment instanceof MyWeiboFragment)
+				getMenuInflater().inflate(R.menu.my_weibo_menu, menu);
+			else
+				getMenuInflater().inflate(R.menu.main, menu);
 			restoreActionBar();
 			return true;
 		}
@@ -109,6 +113,33 @@ public class MainActivity extends Activity implements
 		if (id == R.id.action_settings) {
 			return true;
 		}
+		if (id == R.id.add_pic) {
+			((MyPrizeFragment) nowFragment).openImageSelectDialog();
+		}
+		if (id == R.id.add_weibo) {
+			startActivity(new Intent(MainActivity.this,
+					WBDemoMainActivity.class));
+		}
+
 		return super.onOptionsItemSelected(item);
+	}
+
+	@Override
+	public boolean onKeyDown(int keyCode, KeyEvent event) {
+		if (nowFragment instanceof MyBlogFragment
+				&& ((MyBlogFragment) nowFragment).onKeyDown(keyCode, event)) {
+			return true;
+		}
+		if (nowFragment instanceof MyGistFragment
+				&& ((MyGistFragment) nowFragment).onKeyDown(keyCode, event)) {
+			return true;
+		}
+		
+		if (nowFragment instanceof MyWeiboFragment
+				&& ((MyWeiboFragment) nowFragment).onKeyDown(keyCode, event)) {
+			return true;
+		}
+		
+		return super.onKeyDown(keyCode, event);
 	}
 }
