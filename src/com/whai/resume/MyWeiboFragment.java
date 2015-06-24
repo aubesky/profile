@@ -66,7 +66,7 @@ public class MyWeiboFragment extends Fragment {
 	}
 
 	private void setActionBar() {
-		actionBar.setTitle(R.string.title_section6);
+		actionBar.setTitle(R.string.title_section7);
 	}
 
 	@Override

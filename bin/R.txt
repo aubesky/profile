@@ -63,7 +63,7 @@ int id action_settings 0x7f09002f
 int id add_pic 0x7f090031
 int id add_weibo 0x7f090032
 int id auth_code 0x7f090007
-int id button1 0x7f090022
+int id chart_container 0x7f090022
 int id code 0x7f090006
 int id code_text 0x7f090008
 int id container 0x7f090012

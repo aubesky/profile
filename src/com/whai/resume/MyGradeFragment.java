@@ -12,6 +12,7 @@ import android.view.View;
 import android.view.View.OnClickListener;
 import android.view.ViewGroup;
 import android.widget.Button;
+import android.widget.LinearLayout;
 
 public class MyGradeFragment extends Fragment {
 	private Activity activity;
@@ -30,16 +31,11 @@ public class MyGradeFragment extends Fragment {
 
 		setActionBar();
 
-		Button button = (Button) view.findViewById(R.id.button1);
-
-		button.setOnClickListener(new OnClickListener() {
-
-			@Override
-			public void onClick(View v) {
-				averageScoreChart = new AverageScoreChart();
-				startActivity(averageScoreChart.execute(activity));
-			}
-		});
+		averageScoreChart = new AverageScoreChart();
+		LinearLayout chart_container = (LinearLayout) view
+				.findViewById(R.id.chart_container);
+		View chartView = averageScoreChart.getChartView(activity);
+		chart_container.addView(chartView);
 
 		return view;
 	}
