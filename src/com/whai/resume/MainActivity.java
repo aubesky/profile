@@ -8,6 +8,7 @@ import android.app.Fragment;
 import android.app.FragmentManager;
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.KeyEvent;
 import android.view.Menu;
 import android.view.MenuItem;
@@ -22,6 +23,7 @@ public class MainActivity extends Activity implements
 	private static final int TAB_MY_BLOG = 4;
 	private static final int TAB_MY_GIST = 5;
 	private static final int TAB_MY_WEIBO = 6;
+	private static final int TAB_ABOUT_ME = 7;
 
 	private Fragment nowFragment; // fg记录当前的Fragment
 	/**
@@ -74,6 +76,8 @@ public class MainActivity extends Activity implements
 		case TAB_MY_WEIBO:
 			nowFragment = new MyWeiboFragment();
 			break;
+		case TAB_ABOUT_ME:
+			nowFragment = new AboutMeFragment();
 		}
 		fragmentManager.beginTransaction().replace(R.id.container, nowFragment)
 				.commit();
@@ -134,12 +138,12 @@ public class MainActivity extends Activity implements
 				&& ((MyGistFragment) nowFragment).onKeyDown(keyCode, event)) {
 			return true;
 		}
-		
+
 		if (nowFragment instanceof MyWeiboFragment
 				&& ((MyWeiboFragment) nowFragment).onKeyDown(keyCode, event)) {
 			return true;
 		}
-		
+
 		return super.onKeyDown(keyCode, event);
 	}
 }

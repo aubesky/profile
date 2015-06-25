@@ -114,7 +114,7 @@ public class NavigationDrawerFragment extends Fragment {
 		navDrawerItems.add(new NavDrawerItem(
 				getString(R.string.title_section7), R.drawable.ic_weibo));
 		navDrawerItems.add(new NavDrawerItem(
-				getString(R.string.title_section8), R.drawable.ic_others));
+				getString(R.string.title_section8), R.drawable.ic_about_me));
 		return navDrawerItems;
 	}
 
